@@ -1,0 +1,12 @@
+{
+  "name": "husdev-stack",
+  "owner": { "name": "Hussein Alkhafaji", "email": "husdev@proton.me" },
+  "metadata": { "description": "husdev's curated web stack as a Claude Code skill." },
+  "plugins": [
+    {
+      "name": "husdev-stack",
+      "source": "./plugins/husdev-stack",
+      "description": "husdev's web stack (TypeScript, Bun, Vite, React Router, Tailwind, Zod, Supabase, Drizzle, Vitest, Cloudflare...) so your agent builds new projects with it."
+    }
+  ]
+}
