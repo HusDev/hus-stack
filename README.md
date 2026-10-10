@@ -1,22 +1,22 @@
-# husdev-stack
+# hus-stack
 
 The web stack [Hussein Alkhafaji (husdev)](https://husdev.eu) uses to build projects, packaged as a Claude Code skill. Install it and your agent builds new apps with these tools, and says why it picked each one.
 
-TypeScript · Bun · Vite · React Router (framework mode) · Tailwind CSS · Base UI · TanStack · Zustand · Zod · Supabase + Drizzle · Motion · PostHog · Sentry · Vitest · Playwright · Cloudflare, and more. See the full list in [SKILL.md](plugins/husdev-stack/skills/husdev-stack/SKILL.md).
+TypeScript · Bun · Vite · React Router (framework mode) · Tailwind CSS · Base UI · TanStack · Zustand · Zod · Supabase + Drizzle · Motion · PostHog · Sentry · Vitest · Playwright · Cloudflare, and more. See the full list in [SKILL.md](plugins/hus-stack/skills/hus-stack/SKILL.md).
 
 ## Install
 
 In Claude Code (2.1.275 or later):
 
 ```
-/plugin install husdev-stack --marketplace HusDev/husdev-stack
+/plugin install hus-stack --marketplace HusDev/hus-stack
 ```
 
 On older versions:
 
 ```
-/plugin marketplace add HusDev/husdev-stack
-/plugin install husdev-stack@husdev-stack
+/plugin marketplace add HusDev/hus-stack
+/plugin install hus-stack@hus-stack
 ```
 
 ## How it behaves

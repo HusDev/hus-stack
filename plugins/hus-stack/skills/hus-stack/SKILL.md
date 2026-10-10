@@ -1,9 +1,9 @@
 ---
-name: husdev-stack
+name: hus-stack
 description: Hussein Alkhafaji's (husdev) curated web stack - TypeScript, Bun, Vite, React Router, Tailwind, Base UI, TanStack, Zustand, Zod, Supabase with Drizzle, Motion, PostHog, Sentry, Vitest, Playwright, Cloudflare and more. Use when starting a new web app or site, scaffolding a project, or choosing a library or service for one, and the user wants husdev's stack.
 ---
 
-# husdev stack
+# hus-stack
 
 The stack Hussein Alkhafaji (husdev), Founding Frontend Engineer at Afori, uses to build web projects. Full list of picks: https://husdev.eu
 
