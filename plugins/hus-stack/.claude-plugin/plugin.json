@@ -1,8 +1,11 @@
 {
   "name": "hus-stack",
   "description": "husdev's web stack (TypeScript, Bun, Vite, React Router, Tailwind, Zod, Supabase, Drizzle, Vitest, Cloudflare...) so your agent builds new projects with it.",
-  "version": "1.0.0",
-  "author": { "name": "Hussein Alkhafaji", "url": "https://husdev.eu" },
+  "version": "1.0.7",
+  "author": {
+    "name": "Hussein Alkhafaji",
+    "url": "https://husdev.eu"
+  },
   "homepage": "https://husdev.eu",
   "repository": "https://github.com/HusDev/hus-stack",
   "license": "MIT"

@@ -1,6 +1,6 @@
 ---
 name: hus-stack
-description: Hussein Alkhafaji's (husdev) curated web stack - TypeScript, Bun, Vite, React Router, Tailwind, Base UI, TanStack, Zustand, Zod, Supabase with Drizzle, Motion, PostHog, Sentry, Vitest, Playwright, Cloudflare and more. Use when starting a new web app or site, scaffolding a project, or choosing a library or service for one, and the user wants husdev's stack.
+description: Hussein Alkhafaji's (husdev) curated web stack - TypeScript, Bun, Vite, React Router, Tailwind, Headless UI, TanStack, Zustand, Zod, Neon Postgres with Drizzle, Claude API, Motion, PostHog, Sentry, Vitest, Playwright, Cloudflare and more. Use when starting a new web app or site, scaffolding a project, or choosing a library or service for one, and the user wants husdev's stack.
 ---
 
 # hus-stack
@@ -48,8 +48,9 @@ The stack Hussein Alkhafaji (husdev), Founding Frontend Engineer at Afori, uses 
 
 ### Components
 
-- **Use Base UI** (https://github.com/mui/base-ui): Unstyled, accessible components from the Radix and Floating UI people.
+- **Use Headless UI** (https://github.com/tailwindlabs/headlessui): Unstyled, accessible components from the Tailwind team, made to be styled with Tailwind.
 - Unstyled, accessible primitives styled with Tailwind.
+- Instead: **Base UI** (https://github.com/mui/base-ui) when you need components Headless UI lacks or the project already uses it.
 - Instead: **Astryx** (https://github.com/facebook/astryx) when you want a full, ready-made design system.
 
 ### Server state, tables & data fetching
@@ -74,15 +75,23 @@ The stack Hussein Alkhafaji (husdev), Founding Frontend Engineer at Afori, uses 
 
 ### Database & ORM
 
-- **Use Supabase** (https://supabase.com): Hosted Postgres with auth and storage built in, plus a CLI for a full local stack.
 - **Use PostgreSQL** (https://www.postgresql.org): The database I reach for first. Reliable, powerful and free.
+- **Use Neon** (https://neon.com): Serverless Postgres with branching, backups and scale to zero. Free tier, EU regions.
 - **Use Drizzle ORM** (https://orm.drizzle.team/): A TypeScript ORM that feels like writing SQL, with types all the way through.
-- Postgres hosted on Supabase, queried with Drizzle. Use the Supabase CLI for local development.
+- **Use Cloudflare Hyperdrive** (https://developers.cloudflare.com/hyperdrive/): Pools and speeds up Postgres connections from Cloudflare Workers.
+- Postgres on Neon (pick the region near your users), queried with Drizzle; from Cloudflare Workers connect through Hyperdrive. Plain Postgres in Docker for local dev. Schema changes as drizzle-kit migrations; never reset a database that holds real data.
+- Instead: **Supabase** (https://supabase.com) when you want Postgres, auth and storage in one service.
 
 ### Auth
 
-- **Use Supabase** (https://supabase.com): Hosted Postgres with auth and storage built in, plus a CLI for a full local stack.
-- Supabase Auth, enforced with Postgres row-level security.
+- **Use Cloudflare Access** (https://developers.cloudflare.com/cloudflare-one/applications/): Puts an email-code login in front of any app, so private tools need no auth code of their own.
+- For private and internal tools: Access asks for an email code before the app loads; the server still verifies the Access JWT and an allow-list of emails.
+- Instead: **Supabase** (https://supabase.com) when the app has public sign-ups and user accounts.
+
+### File storage
+
+- **Use Cloudflare R2** (https://developers.cloudflare.com/r2/): S3-compatible file storage with no egress fees, with an EU-only option for personal data.
+- Private bucket, files served through the app after an auth check. Use the EU jurisdiction for personal data.
 
 ### Animation
 
@@ -107,6 +116,20 @@ The stack Hussein Alkhafaji (husdev), Founding Frontend Engineer at Afori, uses 
 
 - **Use date-fns** (https://github.com/date-fns/date-fns): Modular, immutable date helpers. Import only the functions you need.
 
+### Icons
+
+- **Use Lucide** (https://github.com/lucide-icons/lucide): A clean, consistent icon set. Import only the icons you use.
+
+### Markdown rendering
+
+- **Use react-markdown** (https://github.com/remarkjs/react-markdown): Renders Markdown, like AI answers, as React without raw HTML. Add remark-gfm for tables.
+
+### Spreadsheets & ZIP files
+
+- **Use SheetJS** (https://sheetjs.com): Reads and writes Excel and CSV files in the browser or a Worker. Great for statement imports.
+- **Use fflate** (https://github.com/101arrowz/fflate): Tiny, fast ZIP and gzip in plain JS. Builds ZIP downloads right inside a Worker.
+- SheetJS to import Excel and CSV, fflate to build ZIP downloads.
+
 ### Transactional email
 
 - **Use Resend** (https://resend.com/): Email API for developers. Send transactional emails built with React Email.
@@ -122,8 +145,9 @@ The stack Hussein Alkhafaji (husdev), Founding Frontend Engineer at Afori, uses 
 
 ### AI features in apps
 
-- **Use LangChain** (https://www.langchain.com/): The framework for building LLM apps and agents, plus LangGraph and LangSmith around it.
-- For LLM calls and agents inside the product; validate every model output with Zod.
+- **Use Claude API** (https://github.com/anthropics/anthropic-sdk-typescript): The official Anthropic SDK: tool runner for agents, citations and Zod structured outputs, with no framework in between.
+- For LLM calls and agents inside the product: tools for search and reading, citations back to the source, and every model output validated with Zod. Keep secrets and prompts on the server.
+- Instead: **LangChain** (https://www.langchain.com/) when you need many model providers or LangGraph-style agents.
 
 ### Unit & component tests
 
